@@ -37,7 +37,8 @@ class StudentController extends Controller {
             'name'   => 'required|string|max:191',
             'course' => 'required|string|max:191',
             'email'  => 'required|email|max:191',
-            'phone'  => 'required|digits:10',
+            'phone'  => 'required|string| min:8|max:12',
+            //'phone'  => 'required|digits:10|max:10',
 
         ]);
 
@@ -96,7 +97,7 @@ class StudentController extends Controller {
 
             return response()->json([
                 'status'  => 200,
-                'message' => $student,
+                'student' => $student,
             ], 200);
 
         } else {
